@@ -12,7 +12,7 @@ Description: Valentine's Day Card for my Girlfriend!
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Programmer Way Of Valentine's Day</title>
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="styles/styles.css" />
     </head>
     <body>
         <h1 class="VdayTitle">Happy Valentine's Day <br> Baby! 💖</h1>
@@ -54,6 +54,14 @@ Description: Valentine's Day Card for my Girlfriend!
                 <img src="images/IMG_6713.jpeg" alt="Heaven1" id="imageLeft">
                 <img src="images/IMG_6714.jpeg" alt="Heaven2" id="imageRight">
             </div>
-        <script src="script.js"></script>
+            <audio id="backgroundMusic" loop style="display:none;">
+                <source src="assets/bruno_mars-just_the_way_you_are.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="audio-controls">
+                <button id="playButton">Play Music</button>
+                <button id="stopButton">Stop Music</button>
+            </div>
+        <script src="scripts/script.js"></script>
     </body>
 </html>
