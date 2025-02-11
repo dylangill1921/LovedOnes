@@ -369,7 +369,6 @@ body {
 }
 
 /* Audio Play Controls */
-/* Container styling for audio controls */
 .audio-controls {
     position: fixed;
     bottom: 0%; 
@@ -377,6 +376,7 @@ body {
     transform: translateX(-50%); 
     display: flex; 
     gap: 20px; 
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
