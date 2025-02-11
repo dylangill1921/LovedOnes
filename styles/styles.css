@@ -376,7 +376,7 @@ body {
     transform: translateX(-50%); 
     display: flex; 
     gap: 20px; 
-    margin-top: 10px;
+    margin: 5px;
     margin-bottom: 10px;
 }
 
