@@ -1,23 +1,257 @@
-/* Styles 1 Month Anniversary */
+/* Styles for our 1 month anniversary */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
 body {
-    min-height: 100vh;
-    background: #E6F0FA; 
     margin: 0;
     padding: 0;
+    padding-bottom: 100px; /* Maintain padding for safety */
+    background: #1a1a2e;
+    overflow-y: auto;
     font-family: 'Poppins', sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
 }
 
-.main-content {
-    margin-top: 60px; 
-    padding: 20px;
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+/* Twinkling stars */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Title */
+h1 {
+    font-size: 4em;
     text-align: center;
-    color: #333;
+    color: #ff6f61;
+    text-shadow: 0 0 15px rgba(255, 111, 97, 0.9);
+    margin-top: 100px;
+    z-index: 2;
 }
 
-.main {
-    font-size: 2.5em;
-    color: #1E90FF; 
-    margin-bottom: 10px;
+/* Timer box */
+.timer-box {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid #fff;
+    border-radius: 15px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    z-index: 2;
+}
+
+.timer {
+    font-size: 1.5em;
+    color: #ff073a;
+    font-weight: 600;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(255, 7, 58, 0.8), 0 0 25px rgba(255, 7, 58, 0.6);
+}
+
+/* Scroll and heart */
+.scroll-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin-top: 60px; 
+    z-index: 1; 
+}
+
+.scroll {
+    width: 100%;
+    height: 0;
+    background: #f4e4bc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    transition: height 0.5s ease;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.scroll.open {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.scroll-content {
+    padding: 20px;
+    color: #333;
+    text-align: center;
+    font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.scroll.open .scroll-content {
+    opacity: 1;
+}
+
+.heart {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 50px;
+    height: 50px;
+    background: #ff6f61;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    transition: top 0.5s ease, transform 0.3s ease, opacity 0.3s ease; 
+    opacity: 1; 
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #ff6f61;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -25px;
+    left: 0;
+}
+
+.heart::after {
+    left: -25px;
+    top: 0;
+}
+
+.heart:hover {
+    background: #ff8779;
+}
+
+.heart:hover::before,
+.heart:hover::after {
+    background: #ff8779;
+}
+
+/* Audio Play Controls */
+.audio-controls {
+    position: relative;
+    margin-top: 20px; 
+    display: flex;
+    gap: 20px;
+    z-index: 2;
+}
+
+.audio-controls button {
+    padding: 15px 30px;
+    cursor: pointer;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.audio-controls button:hover {
+    background-color: #1a252f;
+}
+
+/* Responsive Adjustments for Smaller Screens (e.g., iPhone 14) */
+@media only screen and (max-width: 600px) {
+    /* Adjust title */
+    h1 {
+        font-size: 2.5em; /* Reduced from 4em */
+        margin-top: 80px; /* Slightly reduce margin to fit better */
+    }
+
+    /* Adjust timer box */
+    .timer-box {
+        width: 90%; /* Slightly wider to fit smaller screens */
+        max-width: 350px; /* Reduced from 600px */
+        padding: 15px; /* Reduced padding */
+    }
+
+    .timer {
+        font-size: 1em; /* Reduced from 1.5em */
+        letter-spacing: 1px; /* Slightly less spacing for readability */
+    }
+
+    /* Adjust scroll container */
+    .scroll-container {
+        width: 90%; /* Use percentage for better scaling */
+        max-width: 280px; /* Slightly smaller than 300px */
+        height: 150px; /* Reduced from 200px */
+        margin-top: 40px; /* Reduced from 60px to fit better */
+    }
+
+    .scroll.open {
+        height: 150px; /* Reduced from 200px */
+    }
+
+    .scroll-content {
+        padding: 15px; /* Reduced padding */
+        font-size: 1em; /* Reduced from 1.2em */
+    }
+
+    /* Adjust heart */
+    .heart {
+        width: 40px; /* Reduced from 50px */
+        height: 40px; /* Reduced from 50px */
+        top: -30px; /* Adjusted to scale with smaller size */
+    }
+
+    .heart::before,
+    .heart::after {
+        width: 40px; /* Match reduced heart size */
+        height: 40px;
+    }
+
+    .heart::before {
+        top: -20px; /* Adjusted for smaller size */
+    }
+
+    .heart::after {
+        left: -20px; /* Adjusted for smaller size */
+    }
+
+    /* Adjust audio controls */
+    .audio-controls {
+        margin-top: 15px; /* Reduced from 20px */
+        gap: 10px; /* Reduced from 20px */
+    }
+
+    .audio-controls button {
+        padding: 10px 20px; /* Reduced from 15px 30px */
+        font-size: 14px; /* Reduced from 16px */
+    }
 }
