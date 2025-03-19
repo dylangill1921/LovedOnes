@@ -7,6 +7,7 @@
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
 .nav-list {
@@ -16,28 +17,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; 
+    gap: 20px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .nav-list li {
     position: relative;
-    margin: 0; 
+    margin: 0;
 }
 
 .nav-list a {
     display: block;
     color: #fff;
     text-align: center;
-    padding: 14px 20px; 
+    padding: 14px 20px;
     text-decoration: none;
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
     transition: background-color 0.3s ease;
     width: 250px;
-    box-sizing: border-box; 
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .nav-list a:hover {
@@ -51,13 +53,19 @@
 
 /* Hamburger Menu for Mobile */
 .hamburger {
-    display: none; 
+    display: none;
     font-size: 24px;
     background: none;
     border: none;
     color: #fff;
     padding: 14px 20px;
     cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hamburger.active {
+    transform: rotate(90deg);
+    opacity: 0.8;
 }
 
 /* Dropdown Styles */
@@ -76,10 +84,20 @@
     left: 50%;
     transform: translateX(-50%);
     background-color: #87CEEB;
-    width: 250px; 
+    width: 250px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1001;
     border-radius: 0 0 5px 5px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 .dropdown-content a {
@@ -87,13 +105,13 @@
     padding: 12px 20px;
     text-decoration: none;
     display: block;
-    text-align: center; 
+    text-align: center;
     font-size: 16px;
-    width: 250px; 
+    width: 250px;
     box-sizing: border-box;
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
 }
 
 .dropdown-content a:hover {
@@ -103,15 +121,6 @@
 .dropdown-content a.active {
     background-color: #4682B4;
     font-weight: bold;
-}
-
-/* Enable hover on desktop and active class on mobile */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown.active .dropdown-content {
-    display: block;
 }
 
 /* Responsive Design */
@@ -130,10 +139,15 @@
         width: 100%;
         background-color: #87CEEB;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(-10px);
+        padding: 10px 0;
     }
 
     .nav-list.active {
         display: flex;
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .nav-list li {
@@ -142,25 +156,66 @@
     }
 
     .nav-list a {
-        padding: 12px 20px;
+        padding: 10px 20px;
         text-align: left;
-        width: 100%; 
+        width: 100%;
+        font-size: 16px;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .dropdown {
+        width: 100%;
     }
 
     .dropdown-content {
+        display: none;
         position: static;
         width: 100%;
         box-shadow: none;
         transform: none;
+        opacity: 0;
+        visibility: hidden;
+        margin-top: 5px;
+    }
+
+    .dropdown-content.active {
+        display: block;
+        opacity: 1;
+        visibility: visible;
     }
 
     .dropdown-content a {
         width: 100%;
-        text-align: left; 
+        text-align: left;
+        font-size: 14px;
+        padding: 8px 20px;
+        margin-bottom: 2px;
     }
 
-    /* Disable hover on mobile */
-    .dropdown:hover .dropdown-content {
-        display: none;
+    /* Completely disable hover in mobile view */
+    .dropdown:hover .dropdown-content,
+    .dropdown .dropdown-content:hover,
+    .dropdown-content:hover {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    /* Disable pointer events for hover but allow clicks */
+    .dropdown {
+        pointer-events: auto;
+    }
+
+    .dropdown .dropbtn {
+        pointer-events: auto;
+    }
+
+    .dropdown-content {
+        pointer-events: none;
+    }
+
+    .dropdown-content.active {
+        pointer-events: auto;
     }
 }
