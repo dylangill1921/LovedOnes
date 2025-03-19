@@ -1,3 +1,11 @@
+/*
+    Title: Family Website
+    Name: Dylan Gill
+    File: 1month.js
+    Date: March 19, 2025
+    Description: 1 month scripts.
+*/
+
 // Twinkling stars
 function createStar() {
     const star = document.createElement('div');

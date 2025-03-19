@@ -123,7 +123,6 @@
     font-weight: bold;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
@@ -164,58 +163,39 @@
         display: block;
     }
 
+    /* Fix dropdown in mobile */
     .dropdown {
         width: 100%;
+        position: relative; 
     }
 
     .dropdown-content {
         display: none;
-        position: static;
+        position: relative; 
         width: 100%;
         box-shadow: none;
-        transform: none;
+        transform: none; 
+        left: 0; 
         opacity: 0;
         visibility: hidden;
         margin-top: 5px;
+        padding: 0; 
     }
 
+    /* Fix hover & click functionality */
+    .dropdown:hover .dropdown-content,
     .dropdown-content.active {
-        display: block;
-        opacity: 1;
-        visibility: visible;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative;
     }
 
     .dropdown-content a {
         width: 100%;
         text-align: left;
         font-size: 14px;
-        padding: 8px 20px;
+        padding: 8px 20px 8px 40px; 
         margin-bottom: 2px;
-    }
-
-    /* Completely disable hover in mobile view */
-    .dropdown:hover .dropdown-content,
-    .dropdown .dropdown-content:hover,
-    .dropdown-content:hover {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
-
-    /* Disable pointer events for hover but allow clicks */
-    .dropdown {
-        pointer-events: auto;
-    }
-
-    .dropdown .dropbtn {
-        pointer-events: auto;
-    }
-
-    .dropdown-content {
-        pointer-events: none;
-    }
-
-    .dropdown-content.active {
-        pointer-events: auto;
     }
 }
