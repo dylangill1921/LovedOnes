@@ -109,33 +109,17 @@ h1 {
 /* Timer box */
 .timer-box {
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     padding: 25px;
-    background: rgba(255, 111, 97, 0.08);
+    background: rgba(255, 111, 97, 0.05);
     border: 2px solid rgba(255, 111, 97, 0.2);
     border-radius: 20px;
     margin: 0 0 40px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 30px rgba(255, 111, 97, 0.15);
-    animation: glowPulse 3s ease-in-out infinite 1s;
+    box-shadow: none;
     backdrop-filter: blur(8px);
-}
-
-@keyframes glowPulse {
-    0% {
-        box-shadow: 0 0 30px rgba(255, 111, 97, 0.15);
-        transform: translateZ(0) rotate(0deg);
-    }
-    50% {
-        box-shadow: 0 0 40px rgba(255, 111, 97, 0.25);
-        transform: translateZ(20px) rotate(0.5deg);
-    }
-    100% {
-        box-shadow: 0 0 30px rgba(255, 111, 97, 0.15);
-        transform: translateZ(0) rotate(0deg);
-    }
 }
 
 .timer {
@@ -146,9 +130,7 @@ h1 {
     white-space: nowrap;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-shadow: 0 0 10px rgba(255, 111, 97, 0.4);
-    position: relative;
-    z-index: 1;
+    text-shadow: none;
 }
 
 /* Message container */
@@ -292,63 +274,56 @@ h1 {
 /* Responsive adjustments */
 @media only screen and (max-width: 600px) {
     .anniversary-section {
-        padding: 90px 10px 20px 10px; /* Adjusted padding for mobile */
+        padding: 90px 10px 20px 10px;
         width: 100%;
         box-sizing: border-box;
     }
 
     .section-content {
         padding: 25px 15px;
-        width: 90%; /* Reduced width to ensure borders are visible */
+        width: 92%;
         margin: 0 auto;
-        box-sizing: border-box;
-    }
-
-    .message-container {
-        width: 100%;
-        margin-top: 15px;
-    }
-
-    .timer-box {
-        background: rgba(255, 111, 97, 0.08);
-        border: 2px solid rgba(255, 111, 97, 0.2);
-        box-shadow: 0 0 20px rgba(255, 111, 97, 0.1);
-    }
-
-    .timer {
-        color: #ff6f61;
-        text-shadow: 0 0 8px rgba(255, 111, 97, 0.3);
-    }
-
-    .scroll-wrapper {
-        background: linear-gradient(to bottom, #f5e6b3, #d4c68a);
-        border: 2px solid #8B4513;
-    }
-
-    .message-container.active .scroll-wrapper {
-        background: #fffacd;
-        border: 2px solid #dAA520;
+        background: transparent;
+        border: 2px solid #ff6f61;
+        box-shadow: none;
     }
 
     h1 {
         font-size: 2.8em;
         margin-top: 80px;
+        color: #ff6f61;
+        text-shadow: none;
+    }
+
+    .timer-box {
+        width: 90%;
+        max-width: 400px;
+        padding: 15px;
+        border: 2px solid #ff6f61;
+        box-shadow: none;
+        margin: 15px 0 30px 0;
     }
 
     .timer {
-        font-size: 1.6em;
+        font-size: 1.4em;
+        color: #fff;
+        text-shadow: none;
     }
 
     .heart {
         width: 50px;
         height: 50px;
         margin-bottom: 15px;
+        background: #ff6f61;
+        box-shadow: none;
     }
 
     .heart::before,
     .heart::after {
         width: 50px;
         height: 50px;
+        background: #ff6f61;
+        box-shadow: none;
     }
 
     .heart::before {
@@ -359,9 +334,21 @@ h1 {
         left: -25px;
     }
 
+    .scroll-wrapper {
+        background: transparent !important;
+        border: 2px solid #ff6f61 !important;
+        box-shadow: none;
+    }
+
+    .message-container.active .scroll-wrapper {
+        background: rgba(255, 111, 97, 0.05) !important;
+        border: 2px solid #ff6f61 !important;
+    }
+
     .scroll-content {
         font-size: 1.1em;
         padding: 20px;
+        color: #ff6f61;
     }
 
     .audio-controls {
@@ -373,5 +360,20 @@ h1 {
         padding: 12px 28px;
         font-size: 16px;
         min-width: 110px;
+        background: transparent;
+        border: 2px solid #ff6f61;
+        color: #ff6f61;
+        box-shadow: none;
+    }
+
+    .audio-controls button:hover {
+        background: rgba(255, 111, 97, 0.1);
+        transform: scale(1.05);
+        box-shadow: none;
+    }
+
+    .audio-controls button:active {
+        transform: scale(0.98);
+        box-shadow: none;
     }
 }
