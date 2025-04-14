@@ -1,40 +1,38 @@
 /*
 Valentines Day Card
 Name: Dylan Gill
-File: index.html
+File: valentines2025.js
 Date: February 10, 2025
 Description: Valentine's Day Card for my Girlfriend!
 */
 
-/* Funtion to open the envelope */
+/* Function to open the envelope */
 const wrapper = document.querySelector(".wrapper");
 
 wrapper.addEventListener("click", () => {
   wrapper.classList.toggle("open");
 });
 
-/* Funtion for the hearts to display and drop and multiply on the screen */
+/* Function for the hearts to display and drop and multiply on the screen */
 function hearts() {
-
   const container = document.querySelector('.container');
 
   const create = document.createElement('div');
   create.classList.add('love');
   create.innerHTML = '❤️';
 
-create.style.left = Math.random() * window.innerWidth + 'px';
-create.style.animationDuration = Math.random() * 3 + 2 + 's';
+  create.style.left = Math.random() * window.innerWidth + 'px';
+  create.style.animationDuration = Math.random() * 3 + 2 + 's';
   
   container.appendChild(create)
   setTimeout(() => {
     create.remove();
   }, 3000);
-
 }
 
 setInterval(hearts, 100);
 
-/* function to toggle visibility of images when button is clicked */
+/* Function to toggle visibility of images when button is clicked */
 document.getElementById('showIMGS').addEventListener('click', function() {
   var container = document.getElementById('imageContainer');
   var images = document.querySelectorAll('#imageContainer img');
@@ -71,4 +69,4 @@ document.addEventListener("DOMContentLoaded", function() {
       audio.pause();
       audio.currentTime = 0;
   });
-});
+}); 

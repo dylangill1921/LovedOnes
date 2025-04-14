@@ -1,49 +1,248 @@
-/* Styles for index.html */
+/* Styles for index page */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
+/* Body Styles */
 body {
-    min-height: 100vh;
-    background: #E6F0FA; 
     margin: 0;
     padding: 0;
+    background-color: #000;
+    color: #fff;
     font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(25, 25, 25, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+    z-index: -1;
+    opacity: 0;
+    animation: gradientFade 1.5s ease-out forwards;
+}
+
+/* Main Content Styles */
 .main-content {
-    margin-top: 60px; 
-    padding: 20px;
+    padding: 0 20px;
     text-align: center;
-    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: contentSlideUp 1s ease-out forwards;
+    animation-delay: 0.5s;
 }
 
 .main {
-    font-size: 2.5em;
-    color: #1E90FF; 
-    margin-bottom: 10px;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #87CEEB, #5F9EA0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3);
+    opacity: 0;
+    transform: scale(0.95);
+    animation: titleReveal 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+h2, h3 {
+    color: #fff;
+    margin: 10px 0;
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 h2 {
-    font-size: 1.5em;
-    color: #4682B4; 
-    margin-bottom: 20px;
+    font-size: 2rem;
+    animation: textFadeUp 0.8s ease-out forwards;
+    animation-delay: 1.3s;
 }
 
 h3 {
-    font-size: 1em;
-    color: #4682B4; 
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    animation: textFadeUp 0.8s ease-out forwards;
+    animation-delay: 1.6s;
 }
 
+/* Image Container Styles */
 .img-container {
-    max-width: 100%;
+    width: 80%;
+    max-width: 1000px;
+    margin: 30px auto;
+    border-radius: 20px;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: imageFadeIn 1s ease-out forwards;
+    animation-delay: 1.9s;
+    box-shadow: 0 10px 30px rgba(135, 206, 235, 0.2);
+    position: relative;
+}
+
+.img-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(135, 206, 235, 0.2), transparent);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.img-container:hover::before {
+    opacity: 1;
 }
 
 .img-container img {
-    max-width: 80%;
+    width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+    transform-origin: center center;
+}
+
+.img-container:hover img {
+    transform: scale(1.03);
+}
+
+/* Animations */
+@keyframes gradientFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes contentSlideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes imageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        padding-top: 0;
+        padding: 0 15px;
+        min-height: calc(100vh - 60px);
+        justify-content: flex-start;
+    }
+
+    .main {
+        font-size: 2rem;
+        margin-bottom: 12px;
+        padding-top: 65px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        margin: 5px 0;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+        margin: 5px 0;
+    }
+
+    .img-container {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding-top: 0;
+    }
+
+    .main {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+        padding-top: 65px;
+    }
+
+    .img-container {
+        width: 95%;
+        margin: 8px auto;
+    }
+}
+
+/* Screen height adjustments */
+@media (max-height: 800px) {
+    .main-content {
+        padding-top: 0;
+    }
+
+    .main {
+        padding-top: 65px;
+    }
+
+    .img-container {
+        margin: 10px auto;
+    }
+}
+
+@media (min-height: 801px) {
+    .main-content {
+        padding-top: 0;
+    }
+
+    .main {
+        padding-top: 65px;
+    }
+
+    .img-container {
+        margin-top: 15px;
+        width: 70%;
+        max-width: 900px;
+    }
 }

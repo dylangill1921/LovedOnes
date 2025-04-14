@@ -2,7 +2,7 @@
     Title: Family Website
     Name: Dylan Gill
     File: MovingHome2025.html
-    Date: March 18, 2025
+    Date: March April 1st, 2025
     Description: Mom and Dads moving day message!
 -->
 
@@ -19,7 +19,9 @@
     <header>
         <!-- Navbar -->
         <nav class="navbar">
-            <button class="hamburger" aria-label="Toggle navigation">☰</button>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+            </button>
             <ul class="nav-list">
                 <li><a href="../../../index.html">Home</a></li>
                 <li class="dropdown">
@@ -48,6 +50,88 @@
             </ul>
         </nav>
     </header>
+    <main class="main-content">
+        <section class="title-section">
+            <h1 class="main">Moving Day 2025</h1>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span id="months">0</span>
+                    <p>Months</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="days">0</span>
+                    <p>Days</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">0</span>
+                    <p>Hours</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">0</span>
+                    <p>Minutes</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">0</span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+            <div class="button-container">
+                <button id="momBtn" class="parent-btn">Mom</button>
+                <button id="dadBtn" class="parent-btn">Dad</button>
+            </div>
+        </section>
+
+        <section id="momSection" class="parent-section">
+            <h2>Mom's Section</h2>
+            <div class="section-content">
+                <div class="scroll-container">
+                    <div class="scroll">
+                        <div class="scroll-symbol">✧</div>
+                        <div class="scroll-content">
+                            Dear Mom, I hope your new adventure brings you joy and happiness! Wishing you all the best in your new home!
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-gallery">
+                    <div class="photo-item">
+                        <img src="path/to/mom-photo1.jpg" alt="Mom and me past">
+                        <p>Past</p>
+                    </div>
+                    <div class="photo-item">
+                        <img src="path/to/mom-photo2.jpg" alt="Mom and me present">
+                        <p>Present</p>
+                    </div>
+                </div>
+                <button class="back-btn">Back</button>
+            </div>
+        </section>
+
+        <section id="dadSection" class="parent-section">
+            <h2>Dad's Section</h2>
+            <div class="section-content">
+                <div class="scroll-container">
+                    <div class="scroll">
+                        <div class="scroll-symbol">✧</div>
+                        <div class="scroll-content">
+                            Dear Dad, Wishing you all the best in your new journey! May your new home be filled with laughter and love!
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-gallery">
+                    <div class="photo-item">
+                        <img src="path/to/dad-photo1.jpg" alt="Dad and me past">
+                        <p>Past</p>
+                    </div>
+                    <div class="photo-item">
+                        <img src="path/to/dad-photo2.jpg" alt="Dad and me present">
+                        <p>Present</p>
+                    </div>
+                </div>
+                <button class="back-btn">Back</button>
+            </div>
+        </section>
+    </main>
     <script src="../../../scripts/app.js"></script>
+    <script src="./scripts/moving.js"></script>
 </body>
 </html>
