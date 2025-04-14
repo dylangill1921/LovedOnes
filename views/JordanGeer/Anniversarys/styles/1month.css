@@ -149,7 +149,6 @@ h1 {
     text-shadow: 0 0 10px rgba(255, 111, 97, 0.4);
     position: relative;
     z-index: 1;
-    opacity: 1;
 }
 
 /* Message container */
@@ -311,9 +310,24 @@ h1 {
     }
 
     .timer-box {
-        width: 100%;
-        padding: 20px 15px;
-        margin: 15px 0 30px 0;
+        background: rgba(255, 111, 97, 0.08);
+        border: 2px solid rgba(255, 111, 97, 0.2);
+        box-shadow: 0 0 20px rgba(255, 111, 97, 0.1);
+    }
+
+    .timer {
+        color: #ff6f61;
+        text-shadow: 0 0 8px rgba(255, 111, 97, 0.3);
+    }
+
+    .scroll-wrapper {
+        background: linear-gradient(to bottom, #f5e6b3, #d4c68a);
+        border: 2px solid #8B4513;
+    }
+
+    .message-container.active .scroll-wrapper {
+        background: #fffacd;
+        border: 2px solid #dAA520;
     }
 
     h1 {
@@ -323,10 +337,6 @@ h1 {
 
     .timer {
         font-size: 1.6em;
-    }
-
-    .message-container.active .scroll-wrapper {
-        max-height: 300px;
     }
 
     .heart {
