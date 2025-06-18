@@ -141,7 +141,7 @@ body {
     left: 0;
     background: #000;
     z-index: 1000;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     box-sizing: border-box;
 }
@@ -170,13 +170,14 @@ body {
     border: 1px solid rgba(135, 206, 235, 0.1);
     width: 90%;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
     position: relative;
     box-sizing: border-box;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     animation-delay: 0.4s;
+    min-height: calc(100vh - 200px);
 }
 
 /* Scroll Container */
@@ -212,6 +213,7 @@ body {
     height: 425px;
     background: #fffacd;
     border: 2px solid #dAA520;
+    overflow-y: auto;
 }
 
 .scroll.unrolled .scroll-symbol {
@@ -225,10 +227,33 @@ body {
     text-align: center;
     font-size: 1.2em;
     color: #333;
+    font-weight: bold;
+    max-height: 385px;
+    overflow-y: auto;
+    line-height: 1.6;
 }
 
 .scroll.unrolled .scroll-content {
     opacity: 1;
+}
+
+/* Custom scrollbar for scroll content */
+.scroll-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.scroll-content::-webkit-scrollbar-thumb {
+    background: #8B4513;
+    border-radius: 4px;
+}
+
+.scroll-content::-webkit-scrollbar-thumb:hover {
+    background: #654321;
 }
 
 /* Photo Gallery */
@@ -381,7 +406,7 @@ body {
     }
 
     .scroll.unrolled {
-        height: 300px;
+        height: 500px;
     }
 
     .photo-gallery {
@@ -399,19 +424,27 @@ body {
         margin: 15px auto;
     }
 
+    .scroll-content {
+        max-height: 460px;
+    }
+
     .back-btn {
         width: 85%;
         max-width: 250px;
-        padding: 12px 30px;
-        font-size: 1rem;
-        margin: 15px auto 10px;
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        margin: 25px auto 20px;
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+        box-shadow: 0 4px 15px rgba(135, 206, 235, 0.4);
     }
 }
 
 .back-btn {
-    display: none;
-    margin: 20px auto 0;
-    padding: 12px 30px;
+    display: block;
+    margin: 30px auto 20px;
+    padding: 15px 40px;
     font-size: 1.1rem;
     border: none;
     border-radius: 25px;
@@ -421,11 +454,12 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: translateY(0);
     width: 200px;
     position: relative;
-    z-index: 100;
+    z-index: 1001;
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);
 }
 
 .back-btn.visible {
@@ -433,6 +467,7 @@ body {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    box-shadow: 0 6px 20px rgba(135, 206, 235, 0.4);
 }
 
 .back-btn:hover {
@@ -443,4 +478,27 @@ body {
 
 .back-btn:active {
     transform: translateY(-1px);
+}
+
+/* Extra styles for very small screens */
+@media (max-width: 480px) {
+    .scroll.unrolled {
+        height: 600px;
+    }
+
+    .scroll-content {
+        max-height: 560px;
+        font-size: 1.1em;
+    }
+}
+
+/* Styles for very large mobile screens */
+@media (min-width: 481px) and (max-width: 768px) {
+    .scroll.unrolled {
+        height: 550px;
+    }
+
+    .scroll-content {
+        max-height: 510px;
+    }
 }

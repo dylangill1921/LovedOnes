@@ -13,7 +13,7 @@ document.head.appendChild(luxonScript);
 
 luxonScript.onload = () => {
     // Initialize countdown
-    const movingDate = luxon.DateTime.fromISO('2025-07-01T12:00:00', { zone: 'America/Toronto' });
+    const movingDate = luxon.DateTime.fromISO('2025-06-19T07:00:00', { zone: 'America/Toronto' });
 
     function updateCountdown() {
         const now = luxon.DateTime.local().setZone('America/Toronto');
@@ -37,8 +37,25 @@ luxonScript.onload = () => {
     updateCountdown(); // Initial call
 };
 
+// Auto-play background music
+function playBackgroundMusic() {
+    const audio = document.getElementById('bg-music');
+    if (audio) {
+        audio.volume = 0.3; // Set volume to 30%
+        audio.play().catch(error => {
+            console.log('Auto-play was prevented:', error);
+            // If auto-play fails, try playing on first user interaction
+            document.addEventListener('click', () => {
+                audio.play().catch(e => console.log('Manual play failed:', e));
+            }, { once: true });
+        });
+    }
+}
+
 // Section Transitions
 document.addEventListener('DOMContentLoaded', () => {
+    // Start background music
+    playBackgroundMusic();
     const momBtn = document.getElementById('momBtn');
     const dadBtn = document.getElementById('dadBtn');
     const momSection = document.getElementById('momSection');
