@@ -1,0 +1,10 @@
+/* Minimal index.css - main styles are in our component CSS files */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
