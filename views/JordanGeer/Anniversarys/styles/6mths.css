@@ -1152,9 +1152,20 @@ body {
 /* Mobile adjustments for scroll */
 @media (max-width: 768px) {
     .love-scroll.open {
-        width: 85vw; /* Use viewport width for mobile */
-        height: 70vh; /* Smaller height for mobile */
-        transform: scale(1.05);
+        width: 90vw; /* Wider to use more screen space */
+        height: 60vh; /* Smaller height for mobile */
+        transform: scale(1);
+        max-width: 350px; /* Cap the maximum width */
+    }
+}
+
+/* Extra small screens (iPhone SE, etc.) */
+@media (max-width: 480px) {
+    .love-scroll.open {
+        width: 95vw; /* Almost full width on very small screens */
+        height: 55vh; /* Even smaller height */
+        transform: scale(0.95);
+        max-width: 320px; /* Smaller max width for tiny screens */
     }
 }
 
