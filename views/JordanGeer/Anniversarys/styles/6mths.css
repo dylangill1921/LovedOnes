@@ -335,7 +335,7 @@ body {
     left: 50%;
     top: 50px;
     transform: translateX(-50%);
-    z-index: 10;
+    z-index: 30; /* Higher z-index to appear above sunset */
     background: rgba(255, 255, 255, 0.9);
     padding: 20px 30px;
     border-radius: 20px;
@@ -952,6 +952,7 @@ body {
     color: #fff;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     border: 3px solid #fff;
+    z-index: 35; /* Even higher for finale marker */
 }
 
 .final-marker h2 {
@@ -1148,6 +1149,15 @@ body {
     z-index: 25;
 }
 
+/* Mobile adjustments for scroll */
+@media (max-width: 768px) {
+    .love-scroll.open {
+        width: 85vw; /* Use viewport width for mobile */
+        height: 70vh; /* Smaller height for mobile */
+        transform: scale(1.05);
+    }
+}
+
 .scroll-container {
     position: relative;
     width: 100%;
@@ -1255,7 +1265,7 @@ body {
     padding: 25px 20px;
     height: 100%;
     transform: translateY(100%); /* Start hidden */
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Faster, smoother transition */
     opacity: 0; /* Start invisible */
     font-family: 'Dancing Script', cursive;
     overflow-y: auto; /* Allow scrolling for longer messages */
