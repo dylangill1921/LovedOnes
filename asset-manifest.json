@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/LovedOnes/static/css/main.17241dea.css",
+    "main.js": "/LovedOnes/static/js/main.033fbb87.js",
+    "static/media/photo2.jpeg": "/LovedOnes/static/media/photo2.b7c21faa56d3f46b0dbd.jpeg",
+    "static/media/photo3.jpeg": "/LovedOnes/static/media/photo3.97f1bce0e917999200f4.jpeg",
+    "static/media/photo1.jpeg": "/LovedOnes/static/media/photo1.5cacb949f811f76b7b93.jpeg",
+    "index.html": "/LovedOnes/index.html",
+    "main.17241dea.css.map": "/LovedOnes/static/css/main.17241dea.css.map",
+    "main.033fbb87.js.map": "/LovedOnes/static/js/main.033fbb87.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17241dea.css",
+    "static/js/main.033fbb87.js"
+  ]
+}
