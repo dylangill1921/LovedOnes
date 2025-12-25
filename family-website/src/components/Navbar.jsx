@@ -12,11 +12,30 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Handle dropdown clicks for mobile
+  // Handle dropdown clicks for mobile, hover for desktop
   const handleDropdown = (index, event) => {
     event.preventDefault();
     if (window.innerWidth <= 768) {
       setActiveDropdown(activeDropdown === index ? null : index);
+    } else {
+      // Desktop: toggle on click
+      setActiveDropdown(activeDropdown === index ? null : index);
+    }
+  };
+
+  // Handle desktop hover
+  const handleDropdownEnter = (index) => {
+    if (window.innerWidth > 768) {
+      setActiveDropdown(index);
+    }
+  };
+
+  const handleDropdownLeave = () => {
+    if (window.innerWidth > 768) {
+      // Small delay to allow moving to dropdown content
+      setTimeout(() => {
+        setActiveDropdown(null);
+      }, 200);
     }
   };
 
@@ -66,15 +85,23 @@ const Navbar = () => {
           </Link>
         </li>
         
-        <li className="dropdown">
-          <a 
-            href="#" 
+        <li 
+          className="dropdown"
+          onMouseEnter={() => handleDropdownEnter(0)}
+          onMouseLeave={handleDropdownLeave}
+        >
+          <button 
+            type="button"
             className="dropbtn"
             onClick={(e) => handleDropdown(0, e)}
           >
             MY BEAUTIFUL BABY GIRL
-          </a>
-          <div className={`dropdown-content ${activeDropdown === 0 ? 'active' : ''}`}>
+          </button>
+          <div 
+            className={`dropdown-content ${activeDropdown === 0 ? 'active' : ''}`}
+            onMouseEnter={() => handleDropdownEnter(0)}
+            onMouseLeave={handleDropdownLeave}
+          >
             <Link
               to="/jordan/valentines-2025"
               className={location.pathname === '/jordan/valentines-2025' ? 'active' : ''}
@@ -95,18 +122,46 @@ const Navbar = () => {
             >
               1 Month Anniversary
             </Link>
+            <Link
+              to="/jordan/anniversary-6mths"
+              className={location.pathname === '/jordan/anniversary-6mths' ? 'active' : ''}
+              onClick={() => {
+                setIsMenuOpen(false);
+                setActiveDropdown(null);
+              }}
+            >
+              6 Month Anniversary
+            </Link>
+            <Link
+              to="/jordan/christmas-2025"
+              className={location.pathname === '/jordan/christmas-2025' ? 'active' : ''}
+              onClick={() => {
+                setIsMenuOpen(false);
+                setActiveDropdown(null);
+              }}
+            >
+              Christmas 2025 🎄
+            </Link>
           </div>
         </li>
         
-        <li className="dropdown">
-          <a 
-            href="#" 
+        <li 
+          className="dropdown"
+          onMouseEnter={() => handleDropdownEnter(1)}
+          onMouseLeave={handleDropdownLeave}
+        >
+          <button 
+            type="button"
             className="dropbtn"
             onClick={(e) => handleDropdown(1, e)}
           >
             ALWY
-          </a>
-          <div className={`dropdown-content ${activeDropdown === 1 ? 'active' : ''}`}>
+          </button>
+          <div 
+            className={`dropdown-content ${activeDropdown === 1 ? 'active' : ''}`}
+            onMouseEnter={() => handleDropdownEnter(1)}
+            onMouseLeave={handleDropdownLeave}
+          >
             <Link
               to="/alexandria/birthday-2025"
               className={location.pathname === '/alexandria/birthday-2025' ? 'active' : ''}
@@ -120,15 +175,23 @@ const Navbar = () => {
           </div>
         </li>
         
-        <li className="dropdown">
-          <a 
-            href="#" 
+        <li 
+          className="dropdown"
+          onMouseEnter={() => handleDropdownEnter(2)}
+          onMouseLeave={handleDropdownLeave}
+        >
+          <button 
+            type="button"
             className="dropbtn"
             onClick={(e) => handleDropdown(2, e)}
           >
             MOM & DAD
-          </a>
-          <div className={`dropdown-content ${activeDropdown === 2 ? 'active' : ''}`}>
+          </button>
+          <div 
+            className={`dropdown-content ${activeDropdown === 2 ? 'active' : ''}`}
+            onMouseEnter={() => handleDropdownEnter(2)}
+            onMouseLeave={handleDropdownLeave}
+          >
             <Link
               to="/parents/moving-home-2025"
               className={location.pathname === '/parents/moving-home-2025' ? 'active' : ''}

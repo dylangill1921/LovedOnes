@@ -35,7 +35,7 @@ const Home = () => {
         <div className="img-container" onClick={expandImage}>
           <img 
             src="/assets/images/familyphoto.jpeg" 
-            alt="Family photo at dinner" 
+            alt="Family at dinner" 
           />
           <div className="img-overlay">
             <span className="view-text">🔍 Click to enlarge</span>
@@ -48,7 +48,7 @@ const Home = () => {
         <div className="image-popup" onClick={closeImage}>
           <img 
             src="/assets/images/familyphoto.jpeg" 
-            alt="Family photo at dinner - Enlarged"
+            alt="Family at dinner - Enlarged"
             className="popup-image"
             onClick={(e) => e.stopPropagation()}
           />

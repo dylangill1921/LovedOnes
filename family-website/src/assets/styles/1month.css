@@ -1,0 +1,415 @@
+/* Styles for our 1 month anniversary */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600;700&family=Pacifico&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 100px; 
+    background: #000;
+    overflow-y: auto;
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+/* Twinkling stars */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Page entrance animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Main section styling */
+.anniversary-section {
+    margin-bottom: 30px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    padding-top: 120px;
+    width: 100%;
+}
+
+.section-content {
+    background: rgba(255, 111, 97, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    border: 2px solid #ff6f61;
+    width: 95%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: sectionFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes sectionFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Title */
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 4.2em;
+    text-align: center;
+    color: #ff6f61;
+    text-shadow: 0 0 10px rgba(255, 111, 97, 0.6);
+    margin: 0 0 30px 0;
+    width: 100%;
+}
+
+/* Timer box - Fullscreen */
+.timer-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 25px;
+    background: rgba(255, 111, 97, 0.05);
+    border: 2px solid rgba(255, 111, 97, 0.2);
+    border-radius: 20px;
+    margin: 0 0 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px rgba(255, 111, 97, 0.25);
+    backdrop-filter: blur(8px);
+}
+
+.timer {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2em;
+    color: #fff;
+    font-weight: 700;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+/* Message container */
+.message-container {
+    width: 100%;
+    max-width: 600px; /* Increased max-width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Heart styling - Fullscreen */
+.heart {
+    position: relative;
+    transform: rotate(45deg);
+    width: 60px;
+    height: 60px;
+    background: #ff6f61;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 20px;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #ff6f61;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.heart::before {
+    top: -30px;
+    left: 0;
+}
+
+.heart::after {
+    left: -30px;
+    top: 0;
+}
+
+.heart:hover {
+    transform: rotate(45deg) scale(1.1);
+    background: #ff8779;
+}
+
+.heart:hover::before,
+.heart:hover::after {
+    background: #ff8779;
+}
+
+/* Scroll styling */
+.scroll-wrapper {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #f5e6b3, #d4c68a);
+    border: 2px solid #000;
+    border-radius: 10px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.message-container.active .scroll-wrapper {
+    max-height: 350px;
+    margin: 10px 0;
+    background: #fffacd;
+    border: 2px solid #000;
+    overflow-y: auto;
+}
+
+/* Scroll content */
+.scroll-content {
+    padding: 20px;
+    color: #000;
+    font-size: 1.2em;
+    line-height: 1.6;
+    height: auto;
+    overflow-y: auto;
+}
+
+/* Remove scroll emoji */
+.section-content::before {
+    display: none;
+}
+
+/* Audio controls */
+.audio-controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.9s;
+}
+
+/* Button styles */
+.audio-controls button {
+    padding: 15px 35px;
+    cursor: pointer;
+    background: linear-gradient(145deg, #ff6f61, #ff8779);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(255, 111, 97, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 120px;
+}
+
+.audio-controls button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 111, 97, 0.4);
+}
+
+.audio-controls button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(255, 111, 97, 0.3);
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 600px) {
+    .anniversary-section {
+        padding: 90px 10px 20px 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .section-content {
+        padding: 25px 15px;
+        width: 92%;
+        margin: 0 auto;
+        background: transparent;
+        border: 2px solid #ff6f61;
+        box-shadow: 0 0 20px rgba(255, 111, 97, 0.3);
+    }
+
+    h1 {
+        font-size: 2.8em;
+        margin-top: 80px;
+        color: #ff6f61;
+        text-shadow: 0 0 15px rgba(255, 111, 97, 0.5);
+    }
+
+    .timer-box {
+        width: 90%;
+        max-width: 400px;
+        padding: 15px;
+        background: rgba(255, 111, 97, 0.05);
+        border: 2px solid #ff6f61;
+        box-shadow: 0 0 25px rgba(255, 111, 97, 0.25);
+        margin: 15px 0 30px 0;
+    }
+
+    .timer {
+        font-size: 1.4em;
+        color: #fff;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6);
+    }
+
+    .heart {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+        background: #ff6f61;
+        transform: rotate(45deg);
+        position: relative;
+        border: none;
+        z-index: 2;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: #ff6f61;
+        border-radius: 50%;
+        border: none;
+    }
+
+    .heart::before {
+        top: -25px;
+        left: 0;
+        background: #ff6f61;
+    }
+
+    .heart::after {
+        left: -25px;
+        top: 0;
+        background: #ff6f61;
+    }
+
+    .heart:hover {
+        transform: rotate(45deg) scale(1.1);
+        background: #ff8779;
+    }
+
+    .heart:hover::before,
+    .heart:hover::after {
+        background: #ff8779;
+    }
+
+    .scroll-wrapper {
+        background: linear-gradient(to bottom, #f5e6b3, #d4c68a) !important;
+        border: 2px solid #000 !important;
+        box-shadow: 0 0 15px rgba(255, 111, 97, 0.3);
+    }
+
+    .message-container.active .scroll-wrapper {
+        max-height: 350px;
+        background: #fffacd !important;
+        border: 2px solid #000 !important;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; 
+    }
+
+    .scroll-content {
+        font-size: 1.1em;
+        padding: 20px;
+        color: #000;
+        line-height: 1.5;
+        height: auto;
+        overflow-y: auto;
+    }
+
+    /* Custom scrollbar styling for mobile */
+    .scroll-wrapper::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .scroll-wrapper::-webkit-scrollbar-track {
+        background: rgba(245, 230, 179, 0.5);
+        border-radius: 4px;
+    }
+
+    .scroll-wrapper::-webkit-scrollbar-thumb {
+        background: rgba(139, 69, 19, 0.5);
+        border-radius: 4px;
+    }
+
+    .audio-controls {
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .audio-controls button {
+        padding: 12px 28px;
+        font-size: 16px;
+        min-width: 110px;
+        background: #ff6f61;
+        border: none;
+        color: #fff;
+        box-shadow: 0 0 15px rgba(255, 111, 97, 0.4);
+    }
+
+    .audio-controls button:hover {
+        background: #ff8779;
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 111, 97, 0.5);
+    }
+
+    .audio-controls button:active {
+        background: #ff6f61;
+        transform: scale(0.98);
+        box-shadow: 0 0 10px rgba(255, 111, 97, 0.3);
+    }
+}

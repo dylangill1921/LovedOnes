@@ -1,0 +1,655 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;600&display=swap');
+
+/* --- Main Layout --- */
+.christmas-page {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 80px 20px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' style='font-size:20px'><text y='15'>✨</text></svg>"), auto;
+}
+
+/* --- Typography --- */
+.christmas-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 5rem;
+  color: #ffd700;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 20; /* Higher than polaroids */
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.christmas-subtitle {
+  font-size: 1.8rem;
+  color: #ff69b4;
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 20; /* Higher than polaroids */
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6);
+  }
+}
+
+/* --- Main Content Container --- */
+.christmas-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* --- Hanging String Lights --- */
+.light-rope {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  margin: -30px 0 0 0;
+  padding: 0;
+  pointer-events: none;
+  width: 100%;
+  top: 0;
+}
+
+.light-rope li {
+  position: relative;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  width: 12px;
+  height: 28px;
+  border-radius: 50%;
+  margin: 20px;
+  background: #fff;
+  box-shadow: 0px 4.66667px 24px 3px rgba(255, 255, 255, 1);
+  animation-name: flash-1;
+  animation-duration: 2s;
+}
+
+.light-rope li:nth-child(2n) {
+  background: #00f7a5;
+  box-shadow: 0px 4.66667px 24px 3px rgba(0, 247, 165, 1);
+  animation-name: flash-2;
+  animation-duration: 0.4s;
+}
+
+.light-rope li:nth-child(4n) {
+  background: #f70094;
+  box-shadow: 0px 4.66667px 24px 3px rgba(247, 0, 148, 1);
+  animation-name: flash-3;
+  animation-duration: 1.1s;
+}
+
+.light-rope li:nth-child(odd) { animation-duration: 1.8s; }
+.light-rope li:before { content: ""; position: absolute; background: #222; width: 10px; height: 9.33333px; border-radius: 3px; top: -4.66667px; left: 1px; }
+.light-rope li:after { content: ""; top: -14px; left: 9px; position: absolute; width: 52px; height: 18.66667px; border-bottom: solid #222 2px; border-radius: 50%; }
+.light-rope li:last-child:after { content: none; }
+
+@keyframes flash-1 { 0%, 100% { background: #ffd700; box-shadow: 0px 4.66667px 24px 3px rgba(255, 215, 0, 1); } 50% { background: rgba(255, 215, 0, 0.4); box-shadow: 0px 4.66667px 24px 3px rgba(255, 215, 0, 0.2); } }
+@keyframes flash-2 { 0%, 100% { background: #00f7a5; box-shadow: 0px 4.66667px 24px 3px rgba(0, 247, 165, 1); } 50% { background: rgba(0, 247, 165, 0.4); box-shadow: 0px 4.66667px 24px 3px rgba(0, 247, 165, 0.2); } }
+@keyframes flash-3 { 0%, 100% { background: #f70094; box-shadow: 0px 4.66667px 24px 3px rgba(247, 0, 148, 1); } 50% { background: rgba(247, 0, 148, 0.4); box-shadow: 0px 4.66667px 24px 3px rgba(247, 0, 148, 0.2); } }
+
+/* --- Polaroids --- */
+.polaroids-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.polaroid {
+  position: absolute;
+  background: white;
+  padding: 10px 10px 40px 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.5s, z-index 0.5s;
+  width: 200px;
+  pointer-events: auto;
+}
+
+/* Individual Polaroid Positions - Desktop */
+.polaroid.p1 { top: 15%; left: 5%; transform: rotate(-15deg); }
+.polaroid.p2 { top: 25%; right: 5%; transform: rotate(10deg); }
+.polaroid.p3 { bottom: 10%; left: 10%; transform: rotate(-5deg); }
+
+.polaroid:hover {
+  transform: scale(1.1) rotate(0deg) !important;
+  z-index: 50;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: sepia(20%);
+}
+
+/* --- Premium Card --- */
+.premium-card-wrapper {
+  perspective: 2000px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 450px;
+  min-height: 600px;
+  position: relative;
+  z-index: 10;
+}
+
+.premium-card-wrapper.opened {
+  min-height: auto;
+  height: auto;
+}
+
+.premium-card {
+  width: 100%;
+  min-height: 600px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.premium-card.open { 
+  transform: rotateY(-180deg);
+  min-height: auto;
+  height: auto;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  min-height: 600px;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+}
+
+.premium-card.open .card-back {
+  position: relative;
+  height: auto;
+  min-height: auto;
+}
+
+.card-front {
+  background: linear-gradient(145deg, #d32f2f 0%, #b71c1c 50%, #8b0000 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 
+    inset 0 0 30px rgba(255, 255, 255, 0.1),
+    0 0 40px rgba(211, 47, 47, 0.3);
+}
+
+.card-seal {
+  font-size: 5rem;
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+  animation: heartbeat 2s infinite;
+  margin-bottom: 20px;
+}
+
+.card-front-title {
+  color: white;
+  letter-spacing: 4px;
+  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card-front-hint {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  margin-top: 15px;
+  letter-spacing: 1px;
+  font-style: italic;
+  animation: hint-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hint-pulse {
+  0%, 100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.card-back {
+  background: linear-gradient(145deg, #fffef7 0%, #fff9e6 50%, #fff5d6 100%);
+  transform: rotateY(180deg);
+  padding: 50px 40px;
+  box-sizing: border-box;
+  color: #333;
+  overflow: visible;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(196, 30, 58, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  min-height: 600px;
+}
+
+.card-back-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(196, 30, 58, 0.2);
+}
+
+.card-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 15px;
+  animation: icon-float 3s ease-in-out infinite;
+}
+
+@keyframes icon-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.card-greeting {
+  font-family: 'Great Vibes', cursive;
+  color: #c41e3a;
+  font-size: 2.8rem;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card-message-container {
+  flex: 1;
+  line-height: 2;
+  font-size: 1.15rem;
+  color: #444;
+  text-align: left;
+  font-family: 'Georgia', serif;
+  margin: 20px 0;
+}
+
+.typewriter-text {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.card-signature {
+  margin-top: 30px;
+  text-align: right;
+  padding-top: 20px;
+  border-top: 2px solid rgba(196, 30, 58, 0.2);
+}
+
+.signature-line {
+  width: 150px;
+  height: 1px;
+  background: #c41e3a;
+  margin: 0 auto 15px;
+}
+
+.signature-love {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #c41e3a;
+  margin: 0 0 5px 0;
+  font-style: italic;
+}
+
+.signature-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #c41e3a;
+  margin: 0;
+}
+
+/* Typewriter Cursor */
+.typewriter-cursor::after {
+  content: '|';
+  animation: blink 1s step-start infinite;
+  color: #c41e3a;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* --- Snow --- */
+.snow-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+.snowflake { position: absolute; top: -10%; color: white; user-select: none; animation: fall linear infinite; }
+@keyframes fall { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(110vh) rotate(360deg); } }
+
+
+/* --- Christmas Tree --- */
+.christmas-tree-container {
+  margin: 50px auto;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.christmas-tree {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  animation: tree-sway 4s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes tree-sway {
+  0%, 100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+.tree-star {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  z-index: 2;
+  animation: star-twinkle 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+}
+
+@keyframes star-twinkle {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+  }
+}
+
+.tree-section {
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  margin: 0 auto;
+  position: relative;
+}
+
+.tree-top {
+  border-bottom: 70px solid #228B22;
+  margin-bottom: -10px;
+}
+
+.tree-middle {
+  border-bottom: 80px solid #32CD32;
+  margin-bottom: -10px;
+}
+
+.tree-bottom {
+  border-bottom: 90px solid #006400;
+}
+
+.ornament {
+  position: absolute;
+  font-size: 1.2rem;
+  animation: ornament-twinkle 2s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.ornament.red { animation-delay: 0s; }
+.ornament.blue { animation-delay: 0.3s; }
+.ornament.yellow { animation-delay: 0.6s; }
+.ornament.green { animation-delay: 0.9s; }
+
+.tree-top .ornament:nth-child(1) { top: 20px; left: -50px; }
+.tree-top .ornament:nth-child(2) { top: 35px; left: -10px; }
+.tree-top .ornament:nth-child(3) { top: 25px; left: 30px; }
+
+.tree-middle .ornament:nth-child(1) { top: 25px; left: -55px; }
+.tree-middle .ornament:nth-child(2) { top: 40px; left: -25px; }
+.tree-middle .ornament:nth-child(3) { top: 30px; left: 10px; }
+.tree-middle .ornament:nth-child(4) { top: 50px; left: 35px; }
+
+.tree-bottom .ornament:nth-child(1) { top: 30px; left: -60px; }
+.tree-bottom .ornament:nth-child(2) { top: 45px; left: -30px; }
+.tree-bottom .ornament:nth-child(3) { top: 35px; left: 5px; }
+.tree-bottom .ornament:nth-child(4) { top: 55px; left: 30px; }
+.tree-bottom .ornament:nth-child(5) { top: 40px; left: 50px; }
+
+@keyframes ornament-twinkle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.8;
+  }
+}
+
+.tree-trunk {
+  width: 30px;
+  height: 40px;
+  background: #8B4513;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+
+/* --- Responsive Queries --- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .polaroid { 
+        width: 150px; 
+    }
+    .polaroid.p1 { left: 2%; }
+    .polaroid.p2 { right: 2%; }
+    .polaroid.p3 { left: 2%; }
+    .christmas-title { font-size: 4rem; }
+    .premium-card-wrapper { max-width: 400px; }
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+    .christmas-page {
+        padding: 70px 15px 30px;
+    }
+    
+    .christmas-content {
+        padding: 15px;
+    }
+    
+    .christmas-title { 
+        font-size: 2.5rem; 
+        margin-bottom: 8px;
+    }
+    
+    .christmas-subtitle { 
+        font-size: 1.4rem; 
+        margin-bottom: 30px;
+    }
+    
+    /* Show photos on mobile - repositioned */
+    .polaroids-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin: 30px 0;
+        height: auto;
+        pointer-events: auto;
+    }
+    
+    .polaroid {
+        position: relative;
+        width: 80%;
+        max-width: 250px;
+        transform: rotate(0deg) !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        margin: 0 auto;
+    }
+    
+    .polaroid:hover {
+        transform: scale(1.05) !important;
+    }
+    
+    /* Card adjustments */
+    .premium-card-wrapper { 
+        min-height: 500px;
+        max-width: 100%;
+    }
+    
+    .premium-card { 
+        min-height: 500px; 
+    }
+    
+    .card-front, .card-back { 
+        min-height: 500px; 
+        padding: 30px 20px;
+    }
+    
+    .card-seal {
+        font-size: 4rem;
+    }
+    
+    .card-front-title {
+        font-size: 1.5rem;
+    }
+    
+    .card-greeting {
+        font-size: 2rem;
+    }
+    
+    .card-message-container {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    .signature-love {
+        font-size: 1.5rem;
+    }
+    
+    /* Tree adjustments */
+    .christmas-tree-container {
+        margin: 30px auto;
+    }
+    
+    .christmas-tree {
+        width: 150px;
+        height: 220px;
+    }
+    
+    .tree-section {
+        border-left-width: 45px;
+        border-right-width: 45px;
+    }
+    
+    .tree-top { border-bottom-width: 55px; }
+    .tree-middle { border-bottom-width: 60px; }
+    .tree-bottom { border-bottom-width: 65px; }
+    
+    .tree-star { 
+        font-size: 2rem; 
+    }
+    
+    .ornament { 
+        font-size: 1rem; 
+    }
+    
+    /* Lights adjustment */
+    .light-rope {
+        display: none;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .christmas-title { 
+        font-size: 2rem; 
+    }
+    
+    .christmas-subtitle { 
+        font-size: 1.2rem; 
+    }
+    
+    .polaroid {
+        width: 90%;
+        max-width: 200px;
+    }
+    
+    .premium-card-wrapper {
+        min-height: 450px;
+    }
+    
+    .premium-card {
+        min-height: 450px;
+    }
+    
+    .card-front, .card-back {
+        min-height: 450px;
+        padding: 25px 15px;
+    }
+    
+    .card-message-container {
+        font-size: 0.9rem;
+    }
+    
+    .christmas-tree {
+        width: 120px;
+        height: 180px;
+    }
+    
+    .tree-section {
+        border-left-width: 35px;
+        border-right-width: 35px;
+    }
+    
+    .tree-top { border-bottom-width: 45px; }
+    .tree-middle { border-bottom-width: 50px; }
+    .tree-bottom { border-bottom-width: 55px; }
+}

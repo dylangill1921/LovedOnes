@@ -1,0 +1,395 @@
+/*
+Valentines Day Card
+Name: Dylan Gill
+File: index.html
+Date: February 10, 2025
+Description: Valentine's Day Card for my Girlfriend!
+*/
+
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+/* Main Content styles */
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #DB7093;
+}
+
+/* Style for the "Happy Valentine's Day" heading */
+.VdayTitle {
+    text-align: center; 
+    color: rgb(255, 49, 49); 
+    font-size: 48px; 
+    font-family: 'Courier New', Courier, monospace; 
+    margin-top: 10px;
+    box-sizing: border-box;
+    text-shadow: 0 0 10px rgba(255, 49, 49, 0.8); 
+}
+
+/* Envelope and Letter styles */
+.wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20%;
+    background: #f5edd1;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper .envelope {
+    position: relative;
+    width: 425px;
+    height: 230px;
+}
+
+.wrapper .envelope::before {
+    position: absolute;
+    content: "";
+    z-index: 4;
+    top: 0;
+    border-top: 130px solid #ecdeb8;
+    border-right: 212px solid transparent;
+    border-left: 212px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+}
+
+.wrapper.open .envelope:before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.wrapper .envelope::after {
+    position: absolute;
+    content: "";
+    z-index: 4;
+    border-top: 130px solid transparent;
+    border-right: 212px solid #e6cfa7;
+    border-bottom: 100px solid #e6cfa7;
+    border-left: 212px solid #e6cfa7;
+}
+
+.envelope .letter {
+    position: absolute;
+    width: 54%;
+    height: 80%;
+    background: white;
+    padding: 20px 10px;
+    right: 23%;
+    bottom: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease-in-out;
+    z-index: 2;
+    overflow-y: auto;
+}
+
+.wrapper.open .envelope .letter {
+    bottom: 250px;
+    transform: scale(1.5);
+    transition-delay: 1s;
+}
+
+.envelope .letter .text {
+    color: #000;
+    font-size: 10px;
+    }
+
+/* Heart on letter */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    transform: translate(-85%, -60%) rotate(45deg);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out 1s;
+    transform-origin: bottom;
+}
+
+.wrapper.open .heart {
+    transform: translate(-20%, -40%) rotate(230deg);
+    transition-delay: 0.4s;
+}
+
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -7.5px;
+}
+
+.heart:after {
+    right: 7.5px;
+}
+
+.wrapper .envelope .name-tag {
+    position: absolute;
+    bottom: 10px; 
+    left: 130px; 
+    color: #000; 
+    font-size: 16px; 
+    font-family: "Poppins", sans-serif; 
+    z-index: 6; 
+}
+
+.love {
+    font-size: 23px;
+    font-weight: bold;
+    position: fixed;
+    top: -lvh;
+    transform: translateY(0%);
+    left: 0;
+    animation: fall 3s ease-in infinite;
+}
+
+@keyframes fall {
+    to{
+        transform: translateY(250vh);
+    }
+}
+
+/* Button styles*/
+.btn {
+    position: absolute;
+    top: 87%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    padding: 10px 20px;
+    color: rgb(255, 49, 49);
+    font-size: 16px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+
+.btn:hover {
+    background: rgb(255, 49, 49);
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(255, 49, 49),
+    0 0 25px rgb(255, 49, 49),
+    0 0 50px rgb(255, 49, 49),
+    0 0 100px rgb(255, 49, 49);
+}
+
+.btn span {
+    position: absolute;
+    display: block;
+}
+
+.btn span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgb(255, 49, 49));
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+.btn span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, rgb(255, 49, 49));
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+    0% {
+    top: -100%;
+    }
+    50%,100% {
+    top: 100%;
+    }
+}
+
+.btn span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, rgb(255, 49, 49));
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+    0% {
+    right: -100%;
+    }
+    50%,100% {
+    right: 100%;
+    }
+}
+
+.btn span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, rgb(255, 49, 49));
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+    0% {
+    bottom: -100%;
+    }
+    50%,100% {
+    bottom: 100%;
+    }
+}
+
+/* IMG styles*/
+#imageContainer img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;  
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    animation: fadeIn 1.5s ease-in-out, heartbeat 1.5s infinite;
+    border: 3px solid #F33A6A; 
+    border-radius: 50%; 
+    box-shadow: 0 0 15px rgb(243, 58, 106, 0.8);
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out;
+}
+
+#imageLeft {
+    left: 70%;
+}
+
+#imageRight {
+    right: 70%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        transform: translateY(-50%) scale(1.1);
+    }
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+/* Adjustments for tablets */
+@media (max-width: 768px) {
+    .VdayTitle {
+        font-size: 36px; /* Smaller font size for smaller screens */
+    }
+
+    .wrapper {
+        bottom: 10%; /* Adjust positioning closer to the bottom */
+        transform: translateX(-50%) scale(0.8); /* Scale down the wrapper */
+    }
+
+    #imageContainer img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Adjustments for mobile phones */
+@media (max-width: 480px) {
+    .VdayTitle {
+        font-size: 24px;
+    }
+
+    .wrapper {
+        transform: translateX(-50%) scale(0.6); /* Further scale down for small screens */
+    }
+
+    #imageContainer img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .btn {
+        font-size: 12px; /* Smaller button text */
+        padding: 5px 10px; /* Smaller padding */
+    }
+}
+
+/* Audio Play Controls */
+.audio-controls {
+    position: absolute;
+    bottom: 0%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+    gap: 39px; 
+}
+
+.audio-controls button {
+    padding: 10px 40px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.audio-controls button:hover {
+    background-color: #0056b3;
+}
+

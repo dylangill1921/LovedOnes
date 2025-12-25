@@ -1,0 +1,23 @@
+/* Styles for 2025 moving day */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+body {
+    min-height: 100vh;
+    background: #E6F0FA; 
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-content {
+    margin-top: 60px; 
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.main {
+    font-size: 2.5em;
+    color: #1E90FF; 
+    margin-bottom: 10px;
+}
