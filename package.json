@@ -1,0 +1,8 @@
+{
+  "name": "lovedones",
+  "version": "1.0.0",
+  "description": "Family Website - LovedOnes",
+  "scripts": {
+    "dev": "npx -y serve ."
+  }
+}

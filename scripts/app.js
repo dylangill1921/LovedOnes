@@ -12,9 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.navbar .nav-list a');
     const currentPath = window.location.pathname;
 
+    // Normalize a path: strip trailing slashes, resolve to just the filename portion
+    function normalizePath(path) {
+        return decodeURIComponent(path).replace(/\/+$/, '').split('/').pop() || '';
+    }
+
+    const currentFile = normalizePath(currentPath);
+
     // Set active link
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+        const linkFile = normalizePath(href);
+        if (linkFile && linkFile === currentFile) {
             link.classList.add('active');
             link.setAttribute('aria-current', 'page');
         } else {
@@ -30,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger?.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navList.classList.toggle('active');
-        
+
         // Ensure proper visibility when toggling
         if (navList.classList.contains('active')) {
             navList.style.visibility = 'visible';
@@ -63,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         content.style.pointerEvents = 'none';
                     }
                 });
-                
+
                 // Open this dropdown
                 dropdownContent.style.visibility = 'visible';
                 dropdownContent.style.display = 'block';
@@ -89,11 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Handle click events (for both mobile and desktop)
         dropBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            
+
             if (window.innerWidth <= 768) {
                 // Mobile behavior
                 const isOpen = dropdownContent.classList.contains('active');
-                
+
                 // Close all other dropdowns
                 document.querySelectorAll('.dropdown-content').forEach(content => {
                     content.classList.remove('active');
@@ -153,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 navList.style.visibility = 'visible';
                 navList.style.pointerEvents = 'auto';
                 navList.style.transform = 'none';
-                
+
                 // Reset dropdowns
                 document.querySelectorAll('.dropdown-content').forEach(dropdown => {
                     dropdown.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';

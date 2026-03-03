@@ -1213,6 +1213,450 @@ body {
     font-weight: 700;
 }
 
+/* ===== OUR PLAYLIST ===== */
+.chapter-playlist {
+    background: linear-gradient(180deg, #08080f, #0d0a1a, #08080f);
+    padding: 120px 20px;
+}
+
+.playlist-stage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+.vinyl-player {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vinyl-disc {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #1a1a2e 30%, #0a0a15 70%, #050508 100%);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(255, 255, 255, 0.05);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.vinyl-disc.spinning {
+    animation: spinVinyl 3s linear infinite;
+}
+
+@keyframes spinVinyl {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.vinyl-grooves {
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow:
+        inset 0 0 0 10px rgba(255, 255, 255, 0.02),
+        inset 0 0 0 20px rgba(255, 255, 255, 0.015),
+        inset 0 0 0 30px rgba(255, 255, 255, 0.01),
+        inset 0 0 0 40px rgba(255, 255, 255, 0.02),
+        inset 0 0 0 50px rgba(255, 255, 255, 0.01),
+        inset 0 0 0 60px rgba(255, 255, 255, 0.015),
+        inset 0 0 0 70px rgba(255, 255, 255, 0.01),
+        inset 0 0 0 80px rgba(255, 255, 255, 0.02);
+}
+
+.vinyl-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6ec7, #c084fc);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(255, 110, 199, 0.4);
+}
+
+.vinyl-label::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #08080f;
+}
+
+.vinyl-label-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.vinyl-label-year {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.vinyl-arm {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    width: 4px;
+    height: 120px;
+    background: linear-gradient(180deg, #888, #333);
+    border-radius: 2px;
+    transform-origin: top center;
+    transform: rotate(-30deg);
+    transition: transform 0.5s ease;
+}
+
+.vinyl-arm.playing {
+    transform: rotate(-10deg);
+}
+
+.vinyl-arm::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #666;
+}
+
+.vinyl-arm::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: -3px;
+    width: 10px;
+    height: 15px;
+    background: #444;
+    border-radius: 0 0 3px 3px;
+    transform: rotate(40deg);
+}
+
+.track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.track {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.track:hover,
+.track.active {
+    background: rgba(255, 110, 199, 0.1);
+    border-color: rgba(255, 110, 199, 0.3);
+    transform: translateX(5px);
+}
+
+.track.active .track-heart {
+    color: #ff6ec7;
+}
+
+.track-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    color: rgba(255, 215, 0, 0.6);
+    font-weight: 700;
+    min-width: 25px;
+}
+
+.track-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.track-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.track-artist {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.track-heart {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.now-playing {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    border-radius: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 5;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+}
+
+.now-playing.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.np-label {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: rgba(255, 215, 0, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.np-song {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.np-reason {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+}
+
+.np-progress {
+    margin-top: 15px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.np-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff6ec7, #ffd700);
+    border-radius: 3px;
+    transition: width 0.3s linear;
+}
+
+/* ===== CONSTELLATION HEART ===== */
+.chapter-stars {
+    background: linear-gradient(180deg, #08080f, #020208, #08080f);
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+.constellation-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.stars-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding-top: 80px;
+    pointer-events: none;
+}
+
+.stars-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+}
+
+.stars-progress {
+    font-size: 0.9rem;
+    color: rgba(255, 215, 0, 0.6);
+    letter-spacing: 2px;
+}
+
+.stars-progress span {
+    color: #ffd700;
+    font-weight: 700;
+}
+
+/* ===== SPIN THE MEMORY ===== */
+.chapter-spin {
+    background: radial-gradient(ellipse at 50% 50%, #1a0a2e 0%, #08080f 70%);
+    padding: 120px 20px;
+}
+
+.slot-machine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    z-index: 5;
+}
+
+.slot-reels {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.slot-window {
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.1), inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.slot-reel {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.1s ease;
+}
+
+.slot-item {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.spin-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 110, 199, 0.2));
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    color: #fff;
+    padding: 16px 40px;
+    border-radius: 60px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.spin-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.7);
+}
+
+.spin-btn:active {
+    transform: scale(0.95);
+}
+
+.spin-btn.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.spin-icon {
+    font-size: 1.4rem;
+}
+
+.memory-reveal {
+    margin-top: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 5;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.memory-reveal.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.memory-card-display {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+}
+
+.memory-emoji {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.memory-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.spin-count {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 5;
+}
+
+.spin-count span {
+    color: #ffd700;
+    font-weight: 700;
+}
 
 /* ===== LETTER ===== */
 .chapter-letter {
@@ -1683,8 +2127,18 @@ body {
         background: linear-gradient(180deg, transparent, rgba(255, 215, 0, 0.3), transparent);
     }
 
-    .reasons-grid {
-        grid-template-columns: repeat(4, 1fr);
+    .playlist-stage {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .vinyl-disc {
+        width: 200px;
+        height: 200px;
+    }
+
+    .slot-window {
+        width: 280px;
     }
 
     .polaroid-wall {
@@ -1737,7 +2191,9 @@ body {
     .chapter-gallery,
     .chapter-finale,
     .chapter-gift,
-    .chapter-timeline {
+    .chapter-timeline,
+    .chapter-playlist,
+    .chapter-spin {
         padding: 80px 15px;
     }
 

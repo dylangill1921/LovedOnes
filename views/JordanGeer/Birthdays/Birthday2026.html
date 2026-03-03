@@ -67,8 +67,11 @@
         <a href="#chapter3" class="map-dot" data-label="Counting"><span></span></a>
         <a href="#chapterTimeline" class="map-dot" data-label="Timeline"><span></span></a>
         <a href="#chapter4" class="map-dot" data-label="Love Letter"><span></span></a>
+        <a href="#chapterPlaylist" class="map-dot" data-label="Playlist"><span></span></a>
         <a href="#chapter5" class="map-dot" data-label="Gallery"><span></span></a>
+        <a href="#chapterStars" class="map-dot" data-label="Stars"><span></span></a>
         <a href="#chapterLanterns" class="map-dot" data-label="Lanterns"><span></span></a>
+        <a href="#chapterSpin" class="map-dot" data-label="Spin"><span></span></a>
         <a href="#chapter6" class="map-dot" data-label="Finale"><span></span></a>
     </nav>
 
@@ -348,6 +351,82 @@
         </div>
     </section>
 
+    <!-- ===== NEW: OUR PLAYLIST ===== -->
+    <section class="chapter chapter-playlist" id="chapterPlaylist">
+        <div class="chapter-indicator">
+            <span class="chapter-label">Our Soundtrack</span>
+            <h2 class="chapter-title">The Playlist of Us 🎵</h2>
+        </div>
+        <div class="playlist-stage reveal-element">
+            <div class="vinyl-player">
+                <div class="vinyl-disc" id="vinylDisc">
+                    <div class="vinyl-grooves"></div>
+                    <div class="vinyl-label">
+                        <span class="vinyl-label-text">D & J</span>
+                        <span class="vinyl-label-year">2025</span>
+                    </div>
+                </div>
+                <div class="vinyl-arm" id="vinylArm"></div>
+            </div>
+            <div class="track-list" id="trackList">
+                <div class="track" data-song="Perfect" data-artist="Ed Sheeran"
+                    data-audio="../../../content/assets/Ed Sheeran - Perfect.mp3"
+                    data-reason="Our song. The one that says everything I feel about you.">
+                    <span class="track-num">01</span>
+                    <div class="track-info"><span class="track-name">Perfect</span><span class="track-artist">Ed
+                            Sheeran</span></div>
+                    <span class="track-heart">♡</span>
+                </div>
+                <div class="track" data-song="Just the Way You Are" data-artist="Bruno Mars"
+                    data-audio="../../../content/assets/bruno_mars-just_the_way_you_are.mp3"
+                    data-reason="Because you're amazing, just the way you are. I wouldn't change a single thing about you.">
+                    <span class="track-num">02</span>
+                    <div class="track-info"><span class="track-name">Just the Way You Are</span><span
+                            class="track-artist">Bruno Mars</span></div>
+                    <span class="track-heart">♡</span>
+                </div>
+                <div class="track" data-song="Riptide" data-artist="Vance Joy"
+                    data-audio="../../../content/assets/Vance Joy - Riptide (Lyrics).mp3"
+                    data-reason="I was scared of getting close, then I fell into something beautiful — us.">
+                    <span class="track-num">03</span>
+                    <div class="track-info"><span class="track-name">Riptide</span><span class="track-artist">Vance
+                            Joy</span></div>
+                    <span class="track-heart">♡</span>
+                </div>
+                <div class="track" data-song="Chasing Cars" data-artist="Snow Patrol"
+                    data-audio="../../../content/assets/snowpatrol.mp3"
+                    data-reason="If I just lay here, would you lie with me and just forget the world? Every time, baby.">
+                    <span class="track-num">04</span>
+                    <div class="track-info"><span class="track-name">Chasing Cars</span><span class="track-artist">Snow
+                            Patrol</span></div>
+                    <span class="track-heart">♡</span>
+                </div>
+                <div class="track" data-song="Lover" data-artist="Taylor Swift"
+                    data-reason="Can I go where you go? Can we always be this close? Forever and ever.">
+                    <span class="track-num">05</span>
+                    <div class="track-info"><span class="track-name">Lover</span><span class="track-artist">Taylor
+                            Swift</span></div>
+                    <span class="track-heart">♡</span>
+                </div>
+                <div class="track" data-song="All of Me" data-artist="John Legend"
+                    data-reason="Because I love ALL of you — every curve, every edge, every perfect imperfection.">
+                    <span class="track-num">06</span>
+                    <div class="track-info"><span class="track-name">All of Me</span><span class="track-artist">John
+                            Legend</span></div>
+                    <span class="track-heart">♡</span>
+                </div>
+            </div>
+        </div>
+        <div class="now-playing" id="nowPlaying">
+            <p class="np-label">💿 Now Playing</p>
+            <p class="np-song" id="npSong">Tap a track...</p>
+            <p class="np-reason" id="npReason"></p>
+            <div class="np-progress">
+                <div class="np-progress-bar" id="npProgressBar"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== CHAPTER 6: THE GALLERY OF US ===== -->
     <section class="chapter chapter-gallery" id="chapter5">
         <div class="chapter-indicator">
@@ -383,6 +462,21 @@
         </div>
     </section>
 
+    <!-- ===== NEW: CONSTELLATION HEART ===== -->
+    <section class="chapter chapter-stars" id="chapterStars">
+        <canvas id="constellationCanvas" class="constellation-canvas"></canvas>
+        <div class="stars-content">
+            <div class="chapter-indicator">
+                <span class="chapter-label">Written In the Stars</span>
+                <h2 class="chapter-title">Our Constellation 💫</h2>
+            </div>
+            <p class="stars-subtitle reveal-element">Tap the stars to connect them and reveal our constellation</p>
+            <div class="stars-progress reveal-element">
+                <span id="starsConnected">0</span> / <span id="starsTotal">0</span> stars connected
+            </div>
+        </div>
+    </section>
+
     <!-- ===== NEW: LANTERN RELEASE (TANGLED-INSPIRED) ===== -->
     <section class="chapter chapter-lanterns" id="chapterLanterns">
         <canvas id="lanternCanvas" class="lantern-canvas"></canvas>
@@ -397,6 +491,44 @@
                 <span id="lanternCount">0</span> lanterns released ✨
             </div>
         </div>
+    </section>
+
+    <!-- ===== NEW: SPIN THE MEMORY ===== -->
+    <section class="chapter chapter-spin" id="chapterSpin">
+        <div class="chapter-indicator">
+            <span class="chapter-label">Feeling Lucky?</span>
+            <h2 class="chapter-title">Spin the Memory 🎰</h2>
+        </div>
+        <div class="slot-machine reveal-element">
+            <div class="slot-reels">
+                <div class="slot-window">
+                    <div class="slot-reel" id="slotReel1">
+                        <div class="slot-item">💖</div>
+                    </div>
+                </div>
+                <div class="slot-window">
+                    <div class="slot-reel" id="slotReel2">
+                        <div class="slot-item">🎯</div>
+                    </div>
+                </div>
+                <div class="slot-window">
+                    <div class="slot-reel" id="slotReel3">
+                        <div class="slot-item">✨</div>
+                    </div>
+                </div>
+            </div>
+            <button class="spin-btn" id="spinBtn">
+                <span class="spin-icon">🎰</span>
+                <span class="spin-text">SPIN!</span>
+            </button>
+        </div>
+        <div class="memory-reveal" id="memoryReveal">
+            <div class="memory-card-display">
+                <p class="memory-emoji" id="memoryEmoji"></p>
+                <p class="memory-text" id="memoryText"></p>
+            </div>
+        </div>
+        <p class="spin-count reveal-element">Memories spun: <span id="spinCount">0</span></p>
     </section>
 
     <!-- ===== CHAPTER: THE FINALE ===== -->
