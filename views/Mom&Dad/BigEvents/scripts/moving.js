@@ -17,12 +17,22 @@ luxonScript.onload = () => {
 
     function updateCountdown() {
         const now = luxon.DateTime.local().setZone('America/Toronto');
-        const diff = movingDate.diff(now, ['months', 'days', 'hours', 'minutes', 'seconds']).toObject();
+        const hasPassed = now > movingDate;
 
-        // Handle negative values for future dates
+        // If the date has passed, show time since; otherwise show time until
+        const diff = hasPassed
+            ? now.diff(movingDate, ['months', 'days', 'hours', 'minutes', 'seconds']).toObject()
+            : movingDate.diff(now, ['months', 'days', 'hours', 'minutes', 'seconds']).toObject();
+
         Object.keys(diff).forEach(unit => {
             diff[unit] = Math.abs(Math.floor(diff[unit]));
         });
+
+        // Update heading to reflect past/future
+        const heading = document.querySelector('.main');
+        if (heading && hasPassed) {
+            heading.textContent = 'Since Moving Day 🏡';
+        }
 
         // Update DOM
         document.getElementById('months').textContent = diff.months;

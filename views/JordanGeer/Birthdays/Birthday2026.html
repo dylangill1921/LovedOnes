@@ -1,0 +1,437 @@
+<!--
+    Title: Family Website
+    Name: Dylan Gill
+    File: Birthday2026.html
+    Date: March 3, 2026
+    Description: Happy 24th Birthday page for my beautiful baby girl Jordan — A magical adventure through our love story!
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 24th Birthday Jordan! 🎂</title>
+    <link rel="stylesheet" href="../../../content/styles/navbar.css" />
+    <link rel="stylesheet" href="styles/birthday2026.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <button class="hamburger" aria-label="Toggle navigation"><span></span></button>
+            <ul class="nav-list">
+                <li><a href="../../../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">MY BEAUTIFUL BABY GIRL</a>
+                    <div class="dropdown-content">
+                        <a href="../Valentines/Valentines2025.html">Valentine's 2025</a>
+                        <a href="../Anniversarys/1month.html">1 Month Anniversary</a>
+                        <a href="../Anniversarys/6mths.html">6 Month Anniversary</a>
+                        <a href="../Birthdays/Birthday2026.html">Birthday 2026</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">ALWY</a>
+                    <div class="dropdown-content">
+                        <a href="../../AlexandriaGill/Birthdays/Birthday2025.html">Birthday 2025</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">MOM &amp; DAD</a>
+                    <div class="dropdown-content">
+                        <a href="../../Mom&Dad/BigEvents/MovingHome2025.html">Moving Home 2025</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Celebration Canvas -->
+    <canvas id="celebrationCanvas"></canvas>
+
+    <!-- Floating sparkles -->
+    <div id="particles"></div>
+
+    <!-- Adventure Map (side navigation) -->
+    <nav class="adventure-map" id="adventureMap">
+        <div class="map-line"></div>
+        <a href="#entrance" class="map-dot active" data-label="Start"><span></span></a>
+        <a href="#chapter1" class="map-dot" data-label="Our Story"><span></span></a>
+        <a href="#chapter2" class="map-dot" data-label="Falling"><span></span></a>
+        <a href="#chapterGift" class="map-dot" data-label="Surprise"><span></span></a>
+        <a href="#chapter3" class="map-dot" data-label="Counting"><span></span></a>
+        <a href="#chapterTimeline" class="map-dot" data-label="Timeline"><span></span></a>
+        <a href="#chapter4" class="map-dot" data-label="Love Letter"><span></span></a>
+        <a href="#chapter5" class="map-dot" data-label="Gallery"><span></span></a>
+        <a href="#chapterLanterns" class="map-dot" data-label="Lanterns"><span></span></a>
+        <a href="#chapter6" class="map-dot" data-label="Finale"><span></span></a>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- ===== CHAPTER 0: THE GRAND ENTRANCE ===== -->
+    <section class="chapter chapter-entrance" id="entrance">
+        <div class="entrance-overlay"></div>
+        <!-- Shooting Stars Canvas -->
+        <canvas id="starsCanvas" class="stars-canvas"></canvas>
+        <div class="entrance-content">
+            <div class="entrance-sparkles">
+                <span class="entrance-sparkle es1">✦</span>
+                <span class="entrance-sparkle es2">✧</span>
+                <span class="entrance-sparkle es3">✦</span>
+                <span class="entrance-sparkle es4">✧</span>
+                <span class="entrance-sparkle es5">✦</span>
+                <span class="entrance-sparkle es6">✧</span>
+                <span class="entrance-sparkle es7">✦</span>
+                <span class="entrance-sparkle es8">✧</span>
+            </div>
+            <p class="entrance-prelude">a birthday adventure for</p>
+            <h1 class="entrance-name">Jordan</h1>
+            <div class="entrance-age">
+                <span class="age-number">24</span>
+            </div>
+            <p class="entrance-date">March 3, 2026</p>
+            <div class="entrance-cta">
+                <button class="begin-btn" id="beginBtn">
+                    <span class="btn-text">Begin Your Adventure</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CHAPTER 1: THE STORY BEGINS ===== -->
+    <section class="chapter chapter-story" id="chapter1">
+        <div class="chapter-indicator">
+            <span class="chapter-label">Chapter One</span>
+            <h2 class="chapter-title">The Day My World Changed</h2>
+        </div>
+        <div class="story-layout">
+            <div class="story-photo reveal-element">
+                <div class="photo-frame frame-tilted-left">
+                    <img src="../../../content/images/Jordan&Me/IMG_9012.jpeg" alt="Our story begins" loading="lazy">
+                    <div class="photo-caption">Where it all started 💫</div>
+                </div>
+            </div>
+            <div class="story-text reveal-element">
+                <p class="story-paragraph">From the very first moment I saw you, I knew my life was about to change
+                    forever. That girl at mini golf who completely destroyed me — I didn't stand a chance, in the game
+                    or in keeping my heart to myself.</p>
+                <p class="story-paragraph">That night, talking in a random parking lot until the world fell asleep
+                    around us, hearing about your dreams, your passion for nursing, your love for your family... I knew
+                    right then and there — <em>you were the one</em>.</p>
+            </div>
+        </div>
+        <!-- Typewriter Quote -->
+        <div class="typewriter-container reveal-element" id="typewriter1">
+            <div class="typewriter-box">
+                <span class="typewriter-cursor">|</span>
+                <p class="typewriter-text"
+                    data-text="And just like that, a random parking lot became the most important place in the world to me...">
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CHAPTER 2: FALLING ===== -->
+    <section class="chapter chapter-falling" id="chapter2">
+        <div class="chapter-indicator">
+            <span class="chapter-label">Chapter Two</span>
+            <h2 class="chapter-title">Falling Deeper Every Day</h2>
+        </div>
+        <div class="mosaic-grid">
+            <div class="mosaic-item mosaic-large reveal-element">
+                <img src="../../../content/images/Jordan&Me/IMG_8476.jpeg" alt="Us together" loading="lazy">
+                <div class="mosaic-overlay"><span>My Everything 💖</span></div>
+            </div>
+            <div class="mosaic-item reveal-element" style="animation-delay: 0.1s">
+                <img src="../../../content/images/Jordan&Me/IMG_8541.jpeg" alt="Adventures" loading="lazy">
+                <div class="mosaic-overlay"><span>Adventures 🌟</span></div>
+            </div>
+            <div class="mosaic-item reveal-element" style="animation-delay: 0.2s">
+                <img src="../../../content/images/Jordan&Me/IMG_8804.jpeg" alt="Memories" loading="lazy">
+                <div class="mosaic-overlay"><span>Memories 💕</span></div>
+            </div>
+            <div class="mosaic-item mosaic-wide reveal-element" style="animation-delay: 0.15s">
+                <img src="../../../content/images/Jordan&Me/IMG_0411.jpeg" alt="Together" loading="lazy">
+                <div class="mosaic-overlay"><span>My Favorite Person 🫶</span></div>
+            </div>
+        </div>
+        <div class="falling-quote reveal-element">
+            <blockquote>"Every day with you feels like discovering a new reason to smile, a new reason to be grateful, a
+                new reason to fall even more in love."</blockquote>
+        </div>
+    </section>
+
+    <!-- ===== NEW: SURPRISE GIFT UNWRAP ===== -->
+    <section class="chapter chapter-gift" id="chapterGift">
+        <div class="chapter-indicator">
+            <span class="chapter-label">A Little Surprise</span>
+            <h2 class="chapter-title">Unwrap Your Gift 🎁</h2>
+        </div>
+        <div class="gift-scene reveal-element">
+            <div class="gift-box" id="giftBox">
+                <div class="gift-lid" id="giftLid">
+                    <div class="gift-bow">
+                        <div class="bow-loop bow-left"></div>
+                        <div class="bow-loop bow-right"></div>
+                        <div class="bow-knot"></div>
+                    </div>
+                    <div class="lid-front"></div>
+                    <div class="lid-top"></div>
+                </div>
+                <div class="gift-body">
+                    <div class="gift-ribbon-v"></div>
+                    <div class="gift-ribbon-h"></div>
+                    <div class="gift-front"></div>
+                    <div class="gift-side"></div>
+                </div>
+                <div class="gift-glow"></div>
+            </div>
+            <p class="gift-instruction" id="giftInstruction">Tap the gift to unwrap it!</p>
+            <div class="gift-reveal" id="giftReveal">
+                <div class="gift-message-card">
+                    <p class="gift-msg-title">🎉 Happy Birthday, Beautiful! 🎉</p>
+                    <p class="gift-msg-body">The greatest gift in MY life is having YOU in it. Every single day with you
+                        is a present I'll never stop being grateful for.</p>
+                    <p class="gift-msg-footer">— Your man, forever & always 💍</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CHAPTER 3: COUNTING THE MOMENTS ===== -->
+    <section class="chapter chapter-counting" id="chapter3">
+        <div class="chapter-indicator">
+            <span class="chapter-label">Chapter Three</span>
+            <h2 class="chapter-title">24 Years of Amazing</h2>
+        </div>
+        <div class="counter-constellation">
+            <div class="constellation-item reveal-element">
+                <div class="constellation-ring"></div>
+                <span class="constellation-number" data-target="24">0</span>
+                <span class="constellation-label">Years of<br>Being Incredible</span>
+            </div>
+            <div class="constellation-connector"></div>
+            <div class="constellation-item reveal-element">
+                <div class="constellation-ring"></div>
+                <span class="constellation-number" data-target="8766">0</span>
+                <span class="constellation-label">Days of<br>Spreading Joy</span>
+            </div>
+            <div class="constellation-connector"></div>
+            <div class="constellation-item reveal-element">
+                <div class="constellation-ring"></div>
+                <span class="constellation-number" data-target="525960">0</span>
+                <span class="constellation-label">Minutes of<br>Being Beautiful</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEW: OUR LOVE STORY TIMELINE ===== -->
+    <section class="chapter chapter-timeline" id="chapterTimeline">
+        <div class="chapter-indicator">
+            <span class="chapter-label">Chapter Four</span>
+            <h2 class="chapter-title">Our Love Story Timeline</h2>
+        </div>
+        <div class="timeline" id="timeline">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-event reveal-element" data-side="left">
+                <div class="timeline-node"><span>💘</span></div>
+                <div class="timeline-card">
+                    <div class="timeline-date">Summer 2025</div>
+                    <h3 class="timeline-heading">The Night Everything Changed</h3>
+                    <p class="timeline-desc">Mini golf. A parking lot. Talking until the whole world went quiet around
+                        us. I knew right then — you were gonna change my life forever.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event reveal-element" data-side="right">
+                <div class="timeline-node"><span>🦋</span></div>
+                <div class="timeline-card">
+                    <div class="timeline-date">The Early Days</div>
+                    <h3 class="timeline-heading">Butterflies & Late Night Calls</h3>
+                    <p class="timeline-desc">Every text made my heart skip. Every call lasted hours. I couldn't stop
+                        thinking about you baby — and I still can't.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event reveal-element" data-side="left">
+                <div class="timeline-node"><span>💑</span></div>
+                <div class="timeline-card">
+                    <div class="timeline-date">Official 💕</div>
+                    <h3 class="timeline-heading">Making It Official</h3>
+                    <p class="timeline-desc">The day you said yes was the best day of my life. I finally got to call the
+                        most beautiful girl in the world MY girl.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event reveal-element" data-side="right">
+                <div class="timeline-node"><span>🗺️</span></div>
+                <div class="timeline-card">
+                    <div class="timeline-date">Our Adventures</div>
+                    <h3 class="timeline-heading">Exploring the World Together</h3>
+                    <p class="timeline-desc">Every adventure with you is my favorite adventure. From spontaneous drives
+                        to lazy Sundays — everything is better with you by my side.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event reveal-element" data-side="left">
+                <div class="timeline-node"><span>🏠</span></div>
+                <div class="timeline-card">
+                    <div class="timeline-date">Building Together</div>
+                    <h3 class="timeline-heading">Meeting Families & Growing Close</h3>
+                    <p class="timeline-desc">Watching you with my family, me with yours — seeing how perfectly our
+                        worlds fit together. That's when I knew this was forever.</p>
+                </div>
+            </div>
+
+            <div class="timeline-event reveal-element" data-side="right">
+                <div class="timeline-node"><span>🎂</span></div>
+                <div class="timeline-card">
+                    <div class="timeline-date">March 3, 2026</div>
+                    <h3 class="timeline-heading">Your 24th Birthday!</h3>
+                    <p class="timeline-desc">And here we are baby. Celebrating YOU and another year of your beautiful
+                        life. The best is yet to come and I can't wait to experience it all with you. Happy Birthday my
+                        love! 💖</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== CHAPTER 5: THE LOVE LETTER ===== -->
+    <section class="chapter chapter-letter" id="chapter4">
+        <div class="chapter-indicator">
+            <span class="chapter-label">Chapter Five</span>
+            <h2 class="chapter-title">Words From My Heart</h2>
+        </div>
+        <div class="letter-wrapper reveal-element">
+            <div class="letter-seal">💌</div>
+            <div class="letter-paper">
+                <div class="letter-content">
+                    <p class="letter-greeting">My Beautiful Baby Girl,</p>
+                    <p class="letter-body">Happy 24th Birthday to the most BEAUTIFUL girl in the whole world!! Baby,
+                        another year around the sun and you just keep getting more beautiful, more amazing, and more
+                        incredible every single day. I don't know how that's even possible but you do it effortlessly.
+                    </p>
+                    <p class="letter-body">Jordan, this past year with you has been the greatest year of my life. From
+                        our first date at mini golf where you absolutely destroyed me, to all the late night talks, the
+                        adventures, the laughter, and every single moment in between — you have made my life so much
+                        better just by being in it. I fall more in love with you every day and I didn't even think that
+                        was possible.</p>
+                    <p class="letter-body">Baby, you inspire me with everything you do. The way you care for people as a
+                        nurse, the way you love your family with every ounce of your heart, and the way you push me to
+                        be better every day — you are truly one of a kind. Your heart is so pure and so beautiful, just
+                        like you.</p>
+                    <p class="letter-body">I can't wait to celebrate this day with you, to see that gorgeous smile, hear
+                        that amazing laugh, and just hold you close. You deserve the absolute world and I promise to
+                        spend every day trying to give that to you. This birthday is just the beginning of so many more
+                        we'll celebrate together.</p>
+                    <p class="letter-body">Here's to 24 baby! The best is yet to come and I can't wait to experience it
+                        all with you by my side. I love you more than words could ever express.</p>
+                    <p class="letter-sign">
+                        Happy Birthday My Love! 🎂💖<br>
+                        Forever Yours,<br>
+                        <span class="letter-signature">Dylan Gill</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CHAPTER 6: THE GALLERY OF US ===== -->
+    <section class="chapter chapter-gallery" id="chapter5">
+        <div class="chapter-indicator">
+            <span class="chapter-label">Chapter Six</span>
+            <h2 class="chapter-title">A Gallery of Us</h2>
+        </div>
+        <div class="polaroid-wall">
+            <div class="polaroid reveal-element" style="--rotate: -5deg; --delay: 0s">
+                <div class="polaroid-img"><img src="../../../content/images/Jordan&Me/IMG_9352.jpeg" alt="Us"
+                        loading="lazy"></div>
+                <div class="polaroid-caption">My favorite human 💖</div>
+            </div>
+            <div class="polaroid reveal-element" style="--rotate: 3deg; --delay: 0.15s">
+                <div class="polaroid-img"><img src="../../../content/images/Jordan&Me/IMG_9638.jpeg" alt="Us"
+                        loading="lazy"></div>
+                <div class="polaroid-caption">That smile though 🥰</div>
+            </div>
+            <div class="polaroid reveal-element" style="--rotate: -2deg; --delay: 0.3s">
+                <div class="polaroid-img"><img src="../../../content/images/Jordan&Me/IMG_9656.jpeg" alt="Us"
+                        loading="lazy"></div>
+                <div class="polaroid-caption">Making memories ✨</div>
+            </div>
+            <div class="polaroid reveal-element" style="--rotate: 4deg; --delay: 0.45s">
+                <div class="polaroid-img"><img src="../../../content/images/Jordan&Me/IMG_9664.jpeg" alt="Us"
+                        loading="lazy"></div>
+                <div class="polaroid-caption">My whole world 🌍</div>
+            </div>
+            <div class="polaroid reveal-element" style="--rotate: -3deg; --delay: 0.6s">
+                <div class="polaroid-img"><img src="../../../content/images/Jordan&Me/FullSizeRender.jpeg" alt="Us"
+                        loading="lazy"></div>
+                <div class="polaroid-caption">Forever & always 💕</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEW: LANTERN RELEASE (TANGLED-INSPIRED) ===== -->
+    <section class="chapter chapter-lanterns" id="chapterLanterns">
+        <canvas id="lanternCanvas" class="lantern-canvas"></canvas>
+        <div class="lantern-content">
+            <div class="chapter-indicator">
+                <span class="chapter-label">A Wish For You</span>
+                <h2 class="chapter-title">Release the Lanterns 🏮</h2>
+            </div>
+            <p class="lantern-subtitle reveal-element">Tap anywhere in the sky to release a lantern with a birthday wish
+            </p>
+            <div class="lantern-counter reveal-element">
+                <span id="lanternCount">0</span> lanterns released ✨
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CHAPTER: THE FINALE ===== -->
+    <section class="chapter chapter-finale" id="chapter6">
+        <div class="finale-bg"></div>
+        <div class="finale-content">
+            <div class="finale-cake">🎂</div>
+            <h2 class="finale-title">Here's to 24, Baby!</h2>
+            <p class="finale-wish">Make a wish... you deserve everything and more 💫</p>
+            <button class="wish-btn" id="wishBtn">
+                <span>🕯️ Blow Out the Candles 🕯️</span>
+            </button>
+            <div class="wish-reveal" id="wishReveal">
+                <p class="wish-text">The best chapter of our story is the one we haven't written yet.</p>
+                <p class="wish-text">And I can't wait to write every single page with you.</p>
+                <p class="wish-love">I love you, Jordan 💖</p>
+                <div class="hearts-explosion" id="heartsExplosion"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Controls -->
+    <div class="music-controls" id="musicControls">
+        <button class="music-btn" id="musicToggle" aria-label="Toggle music">
+            <span class="music-icon">♪</span>
+            <span class="music-text">Play Our Song</span>
+        </button>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="../../../content/assets/Ed Sheeran - Perfect.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="../../../scripts/app.js"></script>
+    <script src="scripts/birthday2026.js"></script>
+</body>
+
+</html>
